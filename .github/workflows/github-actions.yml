@@ -1,0 +1,23 @@
+  name: Java-Selenium CI
+  on:
+    push:
+      branches:
+        -main
+    pull_request:
+      branches:
+        -main
+
+  jobs:
+    CI:
+      runs-on: windows-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Set up JDK 11
+            uses: action/setup-java@v1
+            with:
+              java-version: '11'
+
+        - name: Build with maven
+          run: mvn --batch-mode --update-snapshots verify
+
+
