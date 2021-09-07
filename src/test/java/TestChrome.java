@@ -1,4 +1,4 @@
-import org.junit.*;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,11 +10,11 @@ public class TestChrome {
 
     private WebDriver driver;
 
-    @BeforeClass
+    @BeforeAll
     public static void setUpDriver(){
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
     }
-    @Before
+    @BeforeEach
     public void setUp(){
         driver = new ChromeDriver();
         driver.get("https://www.google.com.co/");
@@ -27,14 +27,14 @@ public class TestChrome {
         searchBox.submit();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         String title = driver.getTitle();
-        Assert.assertEquals("","Youtube - Buscar con Google",driver.getTitle());
+        Assertions.assertEquals("Youtube - Buscar con Google", driver.getTitle());
     }
-    @After
+    @AfterEach
     public void tearDown(){
         driver.quit();
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDownAfterClass(){
         System.out.println("Finalizado");
     }
