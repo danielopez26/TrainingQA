@@ -21,4 +21,5 @@
           uses: mikepenz/action-junit-report@v2.4.3
           if: always()
           with:
-            report_paths: '**/src/test/test-result/TEST-*.xml'
+            report_paths: '**/surefire-reports/TEST-*.xml'
+'
