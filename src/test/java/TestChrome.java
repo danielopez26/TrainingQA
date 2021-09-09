@@ -1,3 +1,4 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +13,8 @@ public class TestChrome {
 
     @BeforeAll
     public static void setUpDriver(){
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+        WebDriverManager.chromedriver().setup();
     }
     @BeforeEach
     public void setUp(){
