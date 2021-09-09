@@ -27,7 +27,8 @@ public class TestChrome {
         searchBox.submit();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         String title = driver.getTitle();
-        Assertions.assertEquals("Youtube - Buscar con Google", driver.getTitle());
+        Assertions.assertEquals("Youtube - Google Search", driver.getTitle());
+
     }
     @AfterEach
     public void tearDown(){
