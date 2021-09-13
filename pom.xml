@@ -48,6 +48,10 @@
                 <version>3.0.0-M5</version>
                 <configuration>
                     <skipTests>false</skipTests>
+                    <systemPropertyVariables>
+                        <propertyName>BROWSER</propertyName>
+                        <buildDirectory>${project.build.directory}</buildDirectory>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
         </plugins>

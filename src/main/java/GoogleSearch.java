@@ -1,3 +1,4 @@
+import drivers.Drivers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,9 +8,9 @@ import java.util.concurrent.TimeUnit;
 
 public class GoogleSearch {
 
-    WebDriver driver;
+    public WebDriver driver = new Drivers().strategyDriver();
 
-    public void search(WebDriver driver){
+    public void search(){
         driver.get("https://www.google.com.co/");
         driver.manage().window().maximize();
 
