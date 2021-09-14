@@ -13,12 +13,10 @@ public class Drivers {
         switch (browser){
             case "Chrome":
                 WebDriverManager.chromedriver().setup();
-                WebDriver chromeDriver = new ChromeDriver();
-                return chromeDriver;
+                return new ChromeDriver();
             case "Firefox":
                 WebDriverManager.firefoxdriver().setup();
-                WebDriver firefoxDriver = new FirefoxDriver();
-                return firefoxDriver;
+                return new FirefoxDriver();
             default:
                 throw new IllegalStateException("Unexpected value: " + browser);
         }
