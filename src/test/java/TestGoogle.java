@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.concurrent.TimeUnit;
 
-public class TestChrome {
+public class TestGoogle {
 
     public WebDriver driver = new Drivers().strategyDriver();
 
@@ -25,7 +25,6 @@ public class TestChrome {
         WebElement youtube = driver.findElement(By.xpath("//*[@class = \"LC20lb DKV0Md\" and text()=\"YouTube\"]"));
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         Assertions.assertEquals("YouTube", "YouTube");
-
     }
 
     @AfterEach
