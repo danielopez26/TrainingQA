@@ -9,7 +9,7 @@ public class Drivers {
 
     public WebDriver strategyDriver(){
 
-        String browser = System.getProperty("browser", "firefox");
+        String browser = System.getProperty("browser", "Firefox");
         switch (browser){
             case "Chrome":
                 WebDriverManager.chromedriver().setup();
