@@ -7,21 +7,20 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Drivers {
 
-    WebDriver driver;
-
-    public String BROWSER = System.getProperty("BROWSER", "Firefox");
+    public String BROWSER = System.getProperty("BROWSER", "firefox");
 
     public WebDriver strategyDriver(){
         switch (BROWSER){
             case "Chrome":
                 WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver();
-                break;
+                WebDriver chromeDriver = new ChromeDriver();
+                return chromeDriver;
             case "Firefox":
                 WebDriverManager.firefoxdriver().setup();
-                driver = new FirefoxDriver();
-                break;
+                WebDriver firefoxDriver = new FirefoxDriver();
+                return firefoxDriver;
+            default:
+                throw new IllegalStateException("Unexpected value: " + BROWSER);
         }
-        return driver;
     }
 }
