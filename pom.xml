@@ -49,7 +49,7 @@
                 <configuration>
                     <skipTests>false</skipTests>
                     <systemPropertyVariables>
-                        <propertyName>BROWSER</propertyName>
+                        <propertyName>browser</propertyName>
                         <buildDirectory>${project.build.directory}</buildDirectory>
                     </systemPropertyVariables>
                 </configuration>
