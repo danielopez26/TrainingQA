@@ -19,7 +19,7 @@
             java-version: '11'
             distribution: 'adopt'
         - name: Build with Maven
-          run:  mvn clean test -Dtest="TestGoogle"#purchase -Dbrowser="${{matrix.browser}}"
+          run:  mvn clean test -Dbrowser="${{matrix.browser}}"
         - name: Test report
           uses: mikepenz/action-junit-report@v2.4.3
           if: always()

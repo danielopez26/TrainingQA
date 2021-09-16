@@ -15,13 +15,12 @@ public class TestGoogle {
 
     @BeforeEach
     public void setUp(){
-        //driver.get("https://www.google.com.co/");
-        driver.get("http://automationpractice.com/index.php");
         driver.manage().window().maximize();
     }
 
     @Test
     public void testSearch(){
+        driver.get("https://www.google.com.co/");
         WebElement searchBox = driver.findElement(By.name("q"));
         searchBox.sendKeys("Youtube");
         searchBox.submit();
@@ -34,12 +33,13 @@ public class TestGoogle {
     @Test
     public void purchase() throws InterruptedException {
 
+        driver.get("http://automationpractice.com/index.php");
         Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_DOWN).build().perform(); //Page Down
+        actions.sendKeys(Keys.PAGE_DOWN).build().perform();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         WebElement product = driver.findElement(By.xpath("//ul[contains(@class,'active')]//a[contains(text(),'Faded Short Sleeve T-shirt')]"));
         wait.until(ExpectedConditions.elementToBeClickable(product));
-        
+
         actions.moveToElement(product).build().perform();
 
         WebElement addToCart = driver.findElement(By.xpath("//span[text()='Add to cart']"));
