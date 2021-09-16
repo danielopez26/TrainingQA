@@ -3,6 +3,7 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
@@ -37,9 +38,8 @@ public class TestGoogle {
         actions.sendKeys(Keys.PAGE_DOWN).build().perform(); //Page Down
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         WebElement product = driver.findElement(By.xpath("//ul[contains(@class,'active')]//a[contains(text(),'Faded Short Sleeve T-shirt')]"));
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul[contains(@class,'active')]//a[contains(text(),'Faded Short Sleeve T-shirt')]")));
-
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        wait.until(ExpectedConditions.elementToBeClickable(product));
+        
         actions.moveToElement(product).build().perform();
 
         WebElement addToCart = driver.findElement(By.xpath("//span[text()='Add to cart']"));
