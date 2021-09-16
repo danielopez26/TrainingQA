@@ -1,8 +1,10 @@
 import drivers.Drivers;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
@@ -12,12 +14,12 @@ public class TestGoogle {
 
     @BeforeEach
     public void setUp(){
-        driver.get("https://www.google.com.co/");
         driver.manage().window().maximize();
     }
 
     @Test
     public void testSearch(){
+        driver.get("https://www.google.com.co/");
         WebElement searchBox = driver.findElement(By.name("q"));
         searchBox.sendKeys("Youtube");
         searchBox.submit();
@@ -31,4 +33,5 @@ public class TestGoogle {
     public void tearDown(){
         driver.quit();
     }
+
 }
