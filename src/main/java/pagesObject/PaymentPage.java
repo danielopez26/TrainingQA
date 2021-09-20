@@ -37,13 +37,12 @@ public class PaymentPage {
     }
 
     public void confirmFinalOrder(){
-       // actions.sendKeys(Keys.PAGE_DOWN).build().perform();
         wait.until(ExpectedConditions.elementToBeClickable(confirmOrder));
         confirmOrder.click();
     }
 
-    public Boolean checkFinalStatus(){
+    public String checkFinalStatus(){
         wait.until(ExpectedConditions.elementToBeClickable(orderConfirmationMessage));
-        return orderConfirmationMessage.getText().contains("Your order on My Store is complete.");
+        return orderConfirmationMessage.getText();
     }
 }

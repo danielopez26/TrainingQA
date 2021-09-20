@@ -1,5 +1,6 @@
 import drivers.Drivers;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
@@ -15,8 +16,8 @@ public class TestAutomationPractice {
     SignInPage signInPage = new SignInPage(driver);
     AddressPage addressPage = new AddressPage(driver);
     ShippingPage shippingPage =  new ShippingPage(driver);
-
     PaymentPage paymentPage = new PaymentPage(driver);
+
 
     @BeforeEach
     public void setUp(){
@@ -34,8 +35,7 @@ public class TestAutomationPractice {
         shippingPage.confirmShipping();
         paymentPage.payByBankwire();
         paymentPage.confirmFinalOrder();
-        paymentPage.checkFinalStatus();
-
+        Assertions.assertEquals(paymentPage.checkFinalStatus(),"Your order on My Store is complete.");
         }
 
     @AfterEach
