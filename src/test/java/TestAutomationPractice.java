@@ -3,17 +3,20 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
-import pages.CheckoutPage;
-import pages.HomePage;
-import pages.SignInPage;
+import pagesObject.*;
 
 
 public class TestAutomationPractice {
 
     WebDriver driver = new Drivers().strategyDriver();
     HomePage homePage = new HomePage(driver);
+    CartPage cartPage = new CartPage(driver);
+    SummaryPage summaryPage =  new SummaryPage(driver);
     SignInPage signInPage = new SignInPage(driver);
-    CheckoutPage checkoutPage = new CheckoutPage(driver);
+    AddressPage addressPage = new AddressPage(driver);
+    ShippingPage shippingPage =  new ShippingPage(driver);
+
+    PaymentPage paymentPage = new PaymentPage(driver);
 
     @BeforeEach
     public void setUp(){
@@ -24,14 +27,15 @@ public class TestAutomationPractice {
     @Test
     public void purchase(){
         homePage.addToCart();
-        homePage.proceedToCheckout();
-        checkoutPage.goToCheckout();
+        cartPage.proceedToCheckout();
+        summaryPage.goToCheckout();
         signInPage.login();
-        checkoutPage.confirmAddress();
-        checkoutPage.confirmShipping();
-        checkoutPage.payByBankwire();
-        checkoutPage.confirmFinalOrder();
-        checkoutPage.checkFinalStatus();
+        addressPage.confirmAddress();
+        shippingPage.confirmShipping();
+        paymentPage.payByBankwire();
+        paymentPage.confirmFinalOrder();
+        paymentPage.checkFinalStatus();
+
         }
 
     @AfterEach
