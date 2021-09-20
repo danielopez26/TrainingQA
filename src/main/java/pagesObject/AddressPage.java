@@ -9,8 +9,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AddressPage {
 
-    WebDriverWait wait;
-    WebDriver driver;
+    private WebDriverWait wait;
+    private WebDriver driver;
 
     public AddressPage(WebDriver driver) {
         this.driver = driver;

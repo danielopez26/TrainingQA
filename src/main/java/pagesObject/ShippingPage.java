@@ -9,8 +9,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ShippingPage {
 
-    WebDriverWait wait;
-    WebDriver driver;
+    private WebDriverWait wait;
+    private WebDriver driver;
 
     public ShippingPage(WebDriver driver) {
         this.driver = driver;

@@ -8,8 +8,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SummaryPage {
-    WebDriverWait wait;
-    WebDriver driver;
+    private WebDriverWait wait;
+    private WebDriver driver;
 
     public SummaryPage(WebDriver driver) {
         this.driver = driver;

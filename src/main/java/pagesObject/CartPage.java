@@ -9,10 +9,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CartPage {
 
-    WebDriver driver;
+    private WebDriver driver;
+    private WebDriverWait wait;
 
     public CartPage (WebDriver driver) {
         this.driver = driver;
+        wait = new WebDriverWait(driver,20);
         PageFactory.initElements(driver, this);
     }
 
@@ -20,7 +22,6 @@ public class CartPage {
     private WebElement proceedToCheckout;
 
     public void proceedToCheckout(){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(proceedToCheckout));
         proceedToCheckout.click();
     }

@@ -11,9 +11,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PaymentPage {
 
-    WebDriverWait wait;
-    WebDriver driver;
-    Actions actions;
+    private WebDriverWait wait;
+    private WebDriver driver;
+    private Actions actions;
 
     public PaymentPage(WebDriver driver) {
         this.driver = driver;

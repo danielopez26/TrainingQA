@@ -10,8 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SignInPage {
 
-    WebDriverWait wait;
-    WebDriver driver;
+    private WebDriverWait wait;
+    private WebDriver driver;
 
     public SignInPage(WebDriver driver) {
         this.driver = driver;
@@ -27,9 +27,9 @@ public class SignInPage {
     @FindBy(id = "SubmitLogin")
     private WebElement btnsignIn;
 
-    public void login (){
-        email.sendKeys("daniel.26@yopmail.com");
-        password.sendKeys("12345678");
+    public void login (String username, String passwd){
+        email.sendKeys(username);
+        password.sendKeys(passwd);
         btnsignIn.click();
     }
 }

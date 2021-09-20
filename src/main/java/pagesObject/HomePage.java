@@ -11,11 +11,10 @@ import java.util.concurrent.TimeUnit;
 
 public class HomePage {
 
-    WebDriver driver;
-    Actions actions;
+    private WebDriver driver;
+    private Actions actions;
 
     public HomePage(WebDriver driver) {
-
         this.driver = driver;
         actions = new Actions(driver);
         PageFactory.initElements(driver, this);
@@ -27,11 +26,10 @@ public class HomePage {
     @FindBy(xpath = "//span[text()='Add to cart']")
     private WebElement addToCart;
 
-    public void addToCart(){
-        actions = new Actions(driver);
+    public void addToCartTShirt(){
         actions.sendKeys(Keys.PAGE_DOWN).build().perform();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        actions.moveToElement(product).perform();
+        actions.moveToElement(product).build().perform();
         addToCart.click();
     }
 }

@@ -10,27 +10,34 @@ import pagesObject.*;
 public class TestAutomationPractice {
 
     WebDriver driver = new Drivers().strategyDriver();
-    HomePage homePage = new HomePage(driver);
-    CartPage cartPage = new CartPage(driver);
-    SummaryPage summaryPage =  new SummaryPage(driver);
-    SignInPage signInPage = new SignInPage(driver);
-    AddressPage addressPage = new AddressPage(driver);
-    ShippingPage shippingPage =  new ShippingPage(driver);
-    PaymentPage paymentPage = new PaymentPage(driver);
+    HomePage homePage;
+    CartPage cartPage;
+    SummaryPage summaryPage;
+    SignInPage signInPage;
+    AddressPage addressPage;
+    ShippingPage shippingPage;
+    PaymentPage paymentPage;
 
 
     @BeforeEach
     public void setUp(){
+        homePage = new HomePage(driver);
+        cartPage = new CartPage(driver);
+        summaryPage =  new SummaryPage(driver);
+        signInPage = new SignInPage(driver);
+        addressPage = new AddressPage(driver);
+        shippingPage =  new ShippingPage(driver);
+        paymentPage = new PaymentPage(driver);
         driver.manage().window().maximize();
         driver.get("http://automationpractice.com/index.php");
     }
 
     @Test
     public void purchase(){
-        homePage.addToCart();
+        homePage.addToCartTShirt();
         cartPage.proceedToCheckout();
         summaryPage.goToCheckout();
-        signInPage.login();
+        signInPage.login("daniel.26@yopmail.com","12345678");
         addressPage.confirmAddress();
         shippingPage.confirmShipping();
         paymentPage.payByBankwire();
