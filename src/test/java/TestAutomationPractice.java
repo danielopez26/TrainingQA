@@ -9,15 +9,14 @@ import pagesObject.*;
 
 public class TestAutomationPractice {
 
-    WebDriver driver = new Drivers().strategyDriver();
-    HomePage homePage;
-    CartPage cartPage;
-    SummaryPage summaryPage;
-    SignInPage signInPage;
-    AddressPage addressPage;
-    ShippingPage shippingPage;
-    PaymentPage paymentPage;
-
+    private WebDriver driver = new Drivers().strategyDriver();
+    private HomePage homePage;
+    private CartPage cartPage;
+    private SummaryPage summaryPage;
+    private SignInPage signInPage;
+    private AddressPage addressPage;
+    private ShippingPage shippingPage;
+    private PaymentPage paymentPage;
 
     @BeforeEach
     public void setUp(){
