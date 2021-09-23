@@ -1,5 +1,6 @@
 package pagesObject;
 
+import drivers.DriverSingleton;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,8 +13,8 @@ public class CartPage {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    public CartPage (WebDriver driver) {
-        this.driver = driver;
+    public CartPage () {
+        this.driver = DriverSingleton.getDriver();
         wait = new WebDriverWait(driver,20);
         PageFactory.initElements(driver, this);
     }

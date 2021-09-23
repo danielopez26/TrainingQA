@@ -1,5 +1,6 @@
 package pagesObject;
 
+import drivers.DriverSingleton;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,8 +13,8 @@ public class AddressPage {
     private WebDriverWait wait;
     private WebDriver driver;
 
-    public AddressPage(WebDriver driver) {
-        this.driver = driver;
+    public AddressPage() {
+        this.driver = DriverSingleton.getDriver();
         wait = new WebDriverWait(driver,20);
         PageFactory.initElements(driver, this);
     }

@@ -1,5 +1,6 @@
 package pagesObject;
 
+import drivers.DriverSingleton;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -15,8 +16,8 @@ public class PaymentPage {
     private WebDriver driver;
     private Actions actions;
 
-    public PaymentPage(WebDriver driver) {
-        this.driver = driver;
+    public PaymentPage() {
+        this.driver = DriverSingleton.getDriver();
         wait = new WebDriverWait(driver,20);
         actions = new Actions(driver);
         PageFactory.initElements(driver, this);

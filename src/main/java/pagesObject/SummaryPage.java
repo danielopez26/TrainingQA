@@ -1,5 +1,6 @@
 package pagesObject;
 
+import drivers.DriverSingleton;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,8 +12,8 @@ public class SummaryPage {
     private WebDriverWait wait;
     private WebDriver driver;
 
-    public SummaryPage(WebDriver driver) {
-        this.driver = driver;
+    public SummaryPage() {
+        this.driver = DriverSingleton.getDriver();
         wait = new WebDriverWait(driver,20);
         PageFactory.initElements(driver, this);
     }

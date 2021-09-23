@@ -1,5 +1,6 @@
 package pagesObject;
 
+import drivers.DriverSingleton;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,8 +15,8 @@ public class HomePage {
     private WebDriver driver;
     private Actions actions;
 
-    public HomePage(WebDriver driver) {
-        this.driver = driver;
+    public HomePage() {
+        this.driver = DriverSingleton.getDriver();
         actions = new Actions(driver);
         PageFactory.initElements(driver, this);
     }
