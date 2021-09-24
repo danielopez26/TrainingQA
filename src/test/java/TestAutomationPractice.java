@@ -1,15 +1,14 @@
-import drivers.DriverSingleton;
+import drivers.InstantiateDriver;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
 import pagesObject.*;
 
 
 public class TestAutomationPractice {
 
-    private WebDriver driver;
+    private InstantiateDriver init;
     private HomePage homePage;
     private CartPage cartPage;
     private SummaryPage summaryPage;
@@ -20,8 +19,7 @@ public class TestAutomationPractice {
 
     @BeforeEach
     public void setUp(){
-        DriverSingleton.getInstance();
-        driver = DriverSingleton.getDriver();
+        init = InstantiateDriver.getInstance();
         homePage = new HomePage();
         cartPage = new CartPage();
         summaryPage =  new SummaryPage();
@@ -29,8 +27,7 @@ public class TestAutomationPractice {
         addressPage = new AddressPage();
         shippingPage =  new ShippingPage();
         paymentPage = new PaymentPage();
-        driver.manage().window().maximize();
-        driver.get("http://automationpractice.com/index.php");
+        init.getDriver().get("http://automationpractice.com/index.php");
     }
 
     @Test
@@ -48,6 +45,6 @@ public class TestAutomationPractice {
 
     @AfterEach
     public void tearDown(){
-       DriverSingleton.closeObjectInstance();
+        init.closeObjectInstance();
     }
 }

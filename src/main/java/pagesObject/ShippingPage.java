@@ -1,7 +1,6 @@
 package pagesObject;
 
-import drivers.DriverSingleton;
-import org.openqa.selenium.WebDriver;
+import drivers.InstantiateDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -10,13 +9,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ShippingPage {
 
+    private InstantiateDriver init;
     private WebDriverWait wait;
-    private WebDriver driver;
 
     public ShippingPage() {
-        this.driver = DriverSingleton.getDriver();
-        wait = new WebDriverWait(driver,20);
-        PageFactory.initElements(driver, this);
+        wait = new WebDriverWait(init.getDriver(),20);
+        PageFactory.initElements(init.getDriver(), this);
     }
 
     @FindBy(id = "uniform-cgv")

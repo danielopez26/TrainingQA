@@ -1,8 +1,7 @@
 package pagesObject;
 
-import drivers.DriverSingleton;
+import drivers.InstantiateDriver;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -12,13 +11,12 @@ import java.util.concurrent.TimeUnit;
 
 public class HomePage {
 
-    private WebDriver driver;
+    private InstantiateDriver init;
     private Actions actions;
 
     public HomePage() {
-        this.driver = DriverSingleton.getDriver();
-        actions = new Actions(driver);
-        PageFactory.initElements(driver, this);
+        actions = new Actions(init.getDriver());
+        PageFactory.initElements(init.getDriver(), this);
     }
 
     @FindBy(xpath = "//ul[contains(@class,'active')]//a[contains(text(),'Faded Short Sleeve T-shirt')]")
@@ -29,7 +27,7 @@ public class HomePage {
 
     public void addToCartTShirt(){
         actions.sendKeys(Keys.PAGE_DOWN).build().perform();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        init.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         actions.moveToElement(product).build().perform();
         addToCart.click();
     }
