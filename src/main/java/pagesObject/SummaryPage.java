@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SummaryPage {
 
-    private InstantiateDriver init;
+    private InstantiateDriver init = InstantiateDriver.getInstance();
     private WebDriverWait wait;
 
     public SummaryPage() {

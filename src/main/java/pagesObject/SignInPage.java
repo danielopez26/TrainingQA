@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SignInPage {
 
-    private InstantiateDriver init;
+    private InstantiateDriver init = InstantiateDriver.getInstance();
     private WebDriverWait wait;
 
     public SignInPage() {

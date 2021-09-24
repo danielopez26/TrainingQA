@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CartPage {
-    private InstantiateDriver init;
+    private InstantiateDriver init = InstantiateDriver.getInstance();
     private WebDriverWait wait;
 
     public CartPage () {

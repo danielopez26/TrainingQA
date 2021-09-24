@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 public class HomePage {
 
-    private InstantiateDriver init;
+    private InstantiateDriver init = InstantiateDriver.getInstance();
     private Actions actions;
 
     public HomePage() {

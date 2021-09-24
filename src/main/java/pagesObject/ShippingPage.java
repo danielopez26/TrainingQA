@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ShippingPage {
 
-    private InstantiateDriver init;
+    private InstantiateDriver init = InstantiateDriver.getInstance();
     private WebDriverWait wait;
 
     public ShippingPage() {
