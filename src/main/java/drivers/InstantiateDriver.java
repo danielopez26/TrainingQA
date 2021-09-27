@@ -12,7 +12,7 @@ public class InstantiateDriver {
         driver.manage().window().maximize();
     }
 
-    public static InstantiateDriver getInstance(){
+    synchronized public static InstantiateDriver getInstance(){
         if (instance == null){
             instance = new InstantiateDriver();
         }
