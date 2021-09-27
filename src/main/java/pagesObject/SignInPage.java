@@ -10,11 +10,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SignInPage {
 
-    private InstantiateDriver init = InstantiateDriver.getInstance();
     private WebDriverWait wait;
 
     public SignInPage() {
-        PageFactory.initElements(init.getDriver(), this);
+        PageFactory.initElements(InstantiateDriver.getInstance().getDriver(), this);
     }
 
     @FindBy(id = "email")

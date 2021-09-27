@@ -9,12 +9,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AddressPage {
 
-    private InstantiateDriver init = InstantiateDriver.getInstance();
     private WebDriverWait wait;
 
     public AddressPage() {
-        wait = new WebDriverWait(init.getDriver(), 20);
-        PageFactory.initElements(init.getDriver(), this);
+        wait = new WebDriverWait(InstantiateDriver.getInstance().getDriver(), 20);
+        PageFactory.initElements(InstantiateDriver.getInstance().getDriver(), this);
     }
 
     @FindBy(name = "processAddress")

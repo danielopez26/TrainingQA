@@ -8,12 +8,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CartPage {
-    private InstantiateDriver init = InstantiateDriver.getInstance();
+
     private WebDriverWait wait;
 
     public CartPage () {
-        wait = new WebDriverWait(init.getDriver(),20);
-        PageFactory.initElements(init.getDriver(), this);
+        wait = new WebDriverWait(InstantiateDriver.getInstance().getDriver(),20);
+        PageFactory.initElements(InstantiateDriver.getInstance().getDriver(), this);
     }
 
     @FindBy(xpath = "//span[contains(text(),'Proceed to checkout')]")

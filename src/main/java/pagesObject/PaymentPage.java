@@ -11,14 +11,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PaymentPage {
 
-    private InstantiateDriver init = InstantiateDriver.getInstance();
     private WebDriverWait wait;
     private Actions actions;
 
     public PaymentPage() {
-        wait = new WebDriverWait(init.getDriver(), 20);
-        actions = new Actions(init.getDriver());
-        PageFactory.initElements(init.getDriver(), this);
+        wait = new WebDriverWait(InstantiateDriver.getInstance().getDriver(), 20);
+        actions = new Actions(InstantiateDriver.getInstance().getDriver());
+        PageFactory.initElements(InstantiateDriver.getInstance().getDriver(), this);
     }
 
     @FindBy(className = "bankwire")

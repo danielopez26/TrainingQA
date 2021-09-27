@@ -11,12 +11,11 @@ import java.util.concurrent.TimeUnit;
 
 public class HomePage {
 
-    private InstantiateDriver init = InstantiateDriver.getInstance();
     private Actions actions;
 
     public HomePage() {
-        actions = new Actions(init.getDriver());
-        PageFactory.initElements(init.getDriver(), this);
+        actions = new Actions(InstantiateDriver.getInstance().getDriver());
+        PageFactory.initElements(InstantiateDriver.getInstance().getDriver(), this);
     }
 
     @FindBy(xpath = "//ul[contains(@class,'active')]//a[contains(text(),'Faded Short Sleeve T-shirt')]")
@@ -27,7 +26,7 @@ public class HomePage {
 
     public void addToCartTShirt(){
         actions.sendKeys(Keys.PAGE_DOWN).build().perform();
-        init.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        InstantiateDriver.getInstance().getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         actions.moveToElement(product).build().perform();
         addToCart.click();
     }
