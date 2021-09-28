@@ -1,4 +1,4 @@
-import drivers.InstantiateDriver;
+import drivers.InitializeWebDriver;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -26,7 +26,7 @@ public class TestAutomationPractice {
         addressPage = new AddressPage();
         shippingPage =  new ShippingPage();
         paymentPage = new PaymentPage();
-        InstantiateDriver.getInstance().getDriver().get("http://automationpractice.com/index.php");
+        InitializeWebDriver.getInstance().getDriver().get("http://automationpractice.com/index.php");
     }
 
     @Test
@@ -44,6 +44,6 @@ public class TestAutomationPractice {
 
     @AfterEach
     public void tearDown(){
-        InstantiateDriver.getInstance().closeObjectInstance();
+        InitializeWebDriver.getInstance().closeObjectInstance();
     }
 }

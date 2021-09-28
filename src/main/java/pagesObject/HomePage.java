@@ -1,6 +1,6 @@
 package pagesObject;
 
-import drivers.InstantiateDriver;
+import drivers.InitializeWebDriver;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -14,8 +14,8 @@ public class HomePage {
     private Actions actions;
 
     public HomePage() {
-        actions = new Actions(InstantiateDriver.getInstance().getDriver());
-        PageFactory.initElements(InstantiateDriver.getInstance().getDriver(), this);
+        actions = new Actions(InitializeWebDriver.getInstance().getDriver());
+        PageFactory.initElements(InitializeWebDriver.getInstance().getDriver(), this);
     }
 
     @FindBy(xpath = "//ul[contains(@class,'active')]//a[contains(text(),'Faded Short Sleeve T-shirt')]")
@@ -26,7 +26,7 @@ public class HomePage {
 
     public void addToCartTShirt(){
         actions.sendKeys(Keys.PAGE_DOWN).build().perform();
-        InstantiateDriver.getInstance().getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        InitializeWebDriver.getInstance().getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         actions.moveToElement(product).build().perform();
         addToCart.click();
     }

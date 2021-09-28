@@ -2,19 +2,19 @@ package drivers;
 
 import org.openqa.selenium.WebDriver;
 
-public class InstantiateDriver {
+public class InitializeWebDriver {
 
-    private static InstantiateDriver instance = null;
+    private static InitializeWebDriver instance = null;
     private WebDriver driver;
 
-    private InstantiateDriver(){
+    private InitializeWebDriver(){
         driver = new Drivers().strategyDriver();
         driver.manage().window().maximize();
     }
 
-    synchronized public static InstantiateDriver getInstance(){
+    synchronized public static InitializeWebDriver getInstance(){
         if (instance == null){
-            instance = new InstantiateDriver();
+            instance = new InitializeWebDriver();
         }
         return instance;
     }

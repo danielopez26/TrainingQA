@@ -1,6 +1,6 @@
 package pagesObject;
 
-import drivers.InstantiateDriver;
+import drivers.InitializeWebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -12,8 +12,8 @@ public class CartPage {
     private WebDriverWait wait;
 
     public CartPage () {
-        wait = new WebDriverWait(InstantiateDriver.getInstance().getDriver(),20);
-        PageFactory.initElements(InstantiateDriver.getInstance().getDriver(), this);
+        wait = new WebDriverWait(InitializeWebDriver.getInstance().getDriver(),20);
+        PageFactory.initElements(InitializeWebDriver.getInstance().getDriver(), this);
     }
 
     @FindBy(xpath = "//span[contains(text(),'Proceed to checkout')]")

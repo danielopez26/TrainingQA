@@ -1,6 +1,6 @@
 package pagesObject;
 
-import drivers.InstantiateDriver;
+import drivers.InitializeWebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -15,9 +15,9 @@ public class PaymentPage {
     private Actions actions;
 
     public PaymentPage() {
-        wait = new WebDriverWait(InstantiateDriver.getInstance().getDriver(), 20);
-        actions = new Actions(InstantiateDriver.getInstance().getDriver());
-        PageFactory.initElements(InstantiateDriver.getInstance().getDriver(), this);
+        wait = new WebDriverWait(InitializeWebDriver.getInstance().getDriver(), 20);
+        actions = new Actions(InitializeWebDriver.getInstance().getDriver());
+        PageFactory.initElements(InitializeWebDriver.getInstance().getDriver(), this);
     }
 
     @FindBy(className = "bankwire")
