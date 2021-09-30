@@ -1,15 +1,13 @@
-import drivers.Drivers;
+import drivers.InitializeWebDriver;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
 import pagesObject.*;
 
 
 public class TestAutomationPractice {
 
-    private WebDriver driver = new Drivers().strategyDriver();
     private HomePage homePage;
     private CartPage cartPage;
     private SummaryPage summaryPage;
@@ -20,15 +18,15 @@ public class TestAutomationPractice {
 
     @BeforeEach
     public void setUp(){
-        homePage = new HomePage(driver);
-        cartPage = new CartPage(driver);
-        summaryPage =  new SummaryPage(driver);
-        signInPage = new SignInPage(driver);
-        addressPage = new AddressPage(driver);
-        shippingPage =  new ShippingPage(driver);
-        paymentPage = new PaymentPage(driver);
-        driver.manage().window().maximize();
-        driver.get("http://automationpractice.com/index.php");
+
+        homePage = new HomePage();
+        cartPage = new CartPage();
+        summaryPage =  new SummaryPage();
+        signInPage = new SignInPage();
+        addressPage = new AddressPage();
+        shippingPage =  new ShippingPage();
+        paymentPage = new PaymentPage();
+        InitializeWebDriver.getInstance().getDriver().get("http://automationpractice.com/index.php");
     }
 
     @Test
@@ -46,6 +44,6 @@ public class TestAutomationPractice {
 
     @AfterEach
     public void tearDown(){
-        driver.quit();
+        InitializeWebDriver.getInstance().closeObjectInstance();
     }
 }

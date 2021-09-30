@@ -1,7 +1,7 @@
 package pagesObject;
 
 
-import org.openqa.selenium.WebDriver;
+import drivers.InitializeWebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -11,11 +11,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class SignInPage {
 
     private WebDriverWait wait;
-    private WebDriver driver;
 
-    public SignInPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+    public SignInPage() {
+        PageFactory.initElements(InitializeWebDriver.getInstance().getDriver(), this);
     }
 
     @FindBy(id = "email")

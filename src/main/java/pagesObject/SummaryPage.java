@@ -1,6 +1,6 @@
 package pagesObject;
 
-import org.openqa.selenium.WebDriver;
+import drivers.InitializeWebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -8,13 +8,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SummaryPage {
-    private WebDriverWait wait;
-    private WebDriver driver;
 
-    public SummaryPage(WebDriver driver) {
-        this.driver = driver;
-        wait = new WebDriverWait(driver,20);
-        PageFactory.initElements(driver, this);
+    private WebDriverWait wait;
+
+    public SummaryPage() {
+        wait = new WebDriverWait(InitializeWebDriver.getInstance().getDriver(),20);
+        PageFactory.initElements(InitializeWebDriver.getInstance().getDriver(), this);
     }
 
     @FindBy(xpath = "//p//span[contains(text(),'Proceed to checkout')]")
