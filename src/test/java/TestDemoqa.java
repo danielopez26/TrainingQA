@@ -21,7 +21,7 @@ public class TestDemoqa {
     @Test
     public void fillFormAndValidate(){
         student.fillBasicData("Daniel", "Lopez", "daniel.26@yopmail.com", "1234567890");
-        student.setData("English","C:\\Users\\daniel.lopezm\\Documents\\GIT\\TrainingQA\\src\\test\\resources\\testImage.png");
+        student.setData("English",System.getProperty("user.dir") + "\\src\\test\\resources\\testImage.png");
         student.setAddress("esta data es de prueba","Haryana","Karnal");
         Assertions.assertEquals(message.getSuccessfulMessage(),"Thanks for submitting the form");
     }

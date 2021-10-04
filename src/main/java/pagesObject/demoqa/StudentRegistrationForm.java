@@ -17,7 +17,7 @@ public class StudentRegistrationForm {
     private Actions actions;
 
     public StudentRegistrationForm() {
-        wait = new WebDriverWait(InitializeWebDriver.getInstance().getDriver(), 20);
+        wait = new WebDriverWait(InitializeWebDriver.getInstance().getDriver(), 10);
         actions = new Actions(InitializeWebDriver.getInstance().getDriver());
         PageFactory.initElements(InitializeWebDriver.getInstance().getDriver(), this);
     }
@@ -91,7 +91,7 @@ public class StudentRegistrationForm {
         cityList.sendKeys(city);
         cityList.sendKeys(Keys.TAB);
         actions.sendKeys(Keys.PAGE_DOWN).build().perform();
-        wait.until(ExpectedConditions.elementToBeClickable(submitButton));
+        wait.until(ExpectedConditions.visibilityOf(submitButton));
         submitButton.click();
     }
 
