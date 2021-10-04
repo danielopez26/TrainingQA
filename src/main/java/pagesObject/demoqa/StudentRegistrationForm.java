@@ -1,6 +1,7 @@
 package pagesObject.demoqa;
 
 import drivers.InitializeWebDriver;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -14,11 +15,9 @@ import java.util.concurrent.TimeUnit;
 public class StudentRegistrationForm {
 
     private WebDriverWait wait;
-    private Actions actions;
 
     public StudentRegistrationForm() {
         wait = new WebDriverWait(InitializeWebDriver.getInstance().getDriver(), 10);
-        actions = new Actions(InitializeWebDriver.getInstance().getDriver());
         PageFactory.initElements(InitializeWebDriver.getInstance().getDriver(), this);
     }
 
@@ -90,7 +89,7 @@ public class StudentRegistrationForm {
         stateList.sendKeys(Keys.TAB);
         cityList.sendKeys(city);
         cityList.sendKeys(Keys.TAB);
-        actions.sendKeys(Keys.PAGE_DOWN).build().perform();
+        submitButton.sendKeys(Keys.DOWN);
         wait.until(ExpectedConditions.visibilityOf(submitButton));
         submitButton.click();
     }

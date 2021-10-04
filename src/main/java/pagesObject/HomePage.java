@@ -26,6 +26,7 @@ public class HomePage {
 
     public void addToCartTShirt(){
         actions.sendKeys(Keys.PAGE_DOWN).build().perform();
+        product.sendKeys(Keys.DOWN);
         InitializeWebDriver.getInstance().getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         actions.moveToElement(product).build().perform();
         addToCart.click();
