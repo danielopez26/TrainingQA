@@ -13,11 +13,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class StudentRegistrationForm {
 
     private WebDriverWait wait;
-    private Actions actions;
 
     public StudentRegistrationForm() {
         wait = new WebDriverWait(InitializeWebDriver.getInstance().getDriver(), 10);
-        actions = new Actions(InitializeWebDriver.getInstance().getDriver());
         PageFactory.initElements(InitializeWebDriver.getInstance().getDriver(), this);
     }
 
@@ -89,8 +87,7 @@ public class StudentRegistrationForm {
         stateList.sendKeys(Keys.TAB);
         cityList.sendKeys(city);
         cityList.sendKeys(Keys.TAB);
-        actions.sendKeys(Keys.PAGE_DOWN).build().perform();
-        submitButton.sendKeys(Keys.DOWN);
+        submitButton.sendKeys(Keys.PAGE_DOWN);
         wait.until(ExpectedConditions.visibilityOf(submitButton));
         submitButton.click();
     }
