@@ -1,7 +1,6 @@
 package pagesObject.demoqa;
 
 import drivers.InitializeWebDriver;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -10,7 +9,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.concurrent.TimeUnit;
 
 public class StudentRegistrationForm {
 
@@ -76,7 +74,6 @@ public class StudentRegistrationForm {
     }
 
     public void setData(String subjects, String image){
-        actions.sendKeys(Keys.PAGE_DOWN).build().perform();
         currentAddressInput.sendKeys(Keys.TAB);
         wait.until(ExpectedConditions.elementToBeClickable(subjectsInput));
         subjectsInput.sendKeys(subjects);
@@ -92,6 +89,7 @@ public class StudentRegistrationForm {
         stateList.sendKeys(Keys.TAB);
         cityList.sendKeys(city);
         cityList.sendKeys(Keys.TAB);
+        actions.sendKeys(Keys.PAGE_DOWN).build().perform();
         submitButton.sendKeys(Keys.DOWN);
         wait.until(ExpectedConditions.visibilityOf(submitButton));
         submitButton.click();
