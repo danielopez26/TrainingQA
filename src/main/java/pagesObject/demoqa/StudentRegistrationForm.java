@@ -15,9 +15,11 @@ import java.util.concurrent.TimeUnit;
 public class StudentRegistrationForm {
 
     private WebDriverWait wait;
+    private Actions actions;
 
     public StudentRegistrationForm() {
         wait = new WebDriverWait(InitializeWebDriver.getInstance().getDriver(), 10);
+        actions = new Actions(InitializeWebDriver.getInstance().getDriver());
         PageFactory.initElements(InitializeWebDriver.getInstance().getDriver(), this);
     }
 
@@ -74,6 +76,7 @@ public class StudentRegistrationForm {
     }
 
     public void setData(String subjects, String image){
+        actions.sendKeys(Keys.PAGE_DOWN).build().perform();
         currentAddressInput.sendKeys(Keys.TAB);
         wait.until(ExpectedConditions.elementToBeClickable(subjectsInput));
         subjectsInput.sendKeys(subjects);
