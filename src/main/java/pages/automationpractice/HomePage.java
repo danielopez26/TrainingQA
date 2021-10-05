@@ -29,6 +29,7 @@ public class HomePage {
     private WebElement addToCart;
 
     public void addToCartTShirt(){
+        wait.until(ExpectedConditions.elementToBeClickable(product));
         product.sendKeys(Keys.DOWN);
         product.sendKeys(Keys.DOWN);
         InitializeWebDriver.getInstance().getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
