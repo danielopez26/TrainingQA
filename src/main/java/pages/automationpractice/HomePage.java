@@ -1,4 +1,4 @@
-package pagesObject;
+package pages.automationpractice;
 
 import drivers.InitializeWebDriver;
 import org.openqa.selenium.Keys;

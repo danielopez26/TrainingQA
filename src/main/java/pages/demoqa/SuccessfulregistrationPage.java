@@ -1,4 +1,4 @@
-package pagesObject.demoqa;
+package pages.demoqa;
 
 import drivers.InitializeWebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,11 +7,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Successfulregistration {
+public class SuccessfulregistrationPage {
 
     private WebDriverWait wait;
 
-    public Successfulregistration() {
+    public SuccessfulregistrationPage() {
         wait = new WebDriverWait(InitializeWebDriver.getInstance().getDriver(), 20);
         PageFactory.initElements(InitializeWebDriver.getInstance().getDriver(), this);
     }

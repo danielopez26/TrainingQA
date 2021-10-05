@@ -1,4 +1,4 @@
-package pagesObject;
+package pages.automationpractice;
 
 import drivers.InitializeWebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,24 +7,20 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ShippingPage {
+public class SummaryPage {
 
     private WebDriverWait wait;
 
-    public ShippingPage() {
+    public SummaryPage() {
         wait = new WebDriverWait(InitializeWebDriver.getInstance().getDriver(),20);
         PageFactory.initElements(InitializeWebDriver.getInstance().getDriver(), this);
     }
 
-    @FindBy(id = "uniform-cgv")
-    private WebElement chkTermsShipping;
+    @FindBy(xpath = "//p//span[contains(text(),'Proceed to checkout')]")
+    private WebElement btnProceedSumary;
 
-    @FindBy(name = "processCarrier")
-    private WebElement btnConfirmShipping;
-
-    public void confirmShipping(){
-        wait.until(ExpectedConditions.elementToBeClickable(chkTermsShipping));
-        chkTermsShipping.click();
-        btnConfirmShipping.click();
+    public void goToCheckout(){
+        wait.until(ExpectedConditions.elementToBeClickable(btnProceedSumary));
+        btnProceedSumary.click();
     }
 }
