@@ -29,7 +29,7 @@ public class HomePage {
     private WebElement addToCart;
 
     public void addToCartTShirt(){
-        actions.sendKeys(Keys.PAGE_DOWN).build().perform();
+        product.sendKeys(Keys.DOWN);
         product.sendKeys(Keys.DOWN);
         InitializeWebDriver.getInstance().getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         actions.moveToElement(product).build().perform();
