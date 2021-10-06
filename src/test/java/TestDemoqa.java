@@ -8,22 +8,22 @@ import pages.demoqa.SuccessfulregistrationPage;
 
 public class TestDemoqa {
 
-    private StudentRegistrationFormPage student;
-    private SuccessfulregistrationPage message;
+    private StudentRegistrationFormPage studentFormPage;
+    private SuccessfulregistrationPage messageFormPage;
 
     @BeforeEach
     public void setUp(){
-        student = new StudentRegistrationFormPage();
-        message = new SuccessfulregistrationPage();
+        studentFormPage = new StudentRegistrationFormPage();
+        messageFormPage = new SuccessfulregistrationPage();
         InitializeWebDriver.getInstance().getDriver().get("https://demoqa.com/automation-practice-form");
     }
 
     @Test
     public void fillFormAndValidate(){
-        student.fillBasicData("Daniel", "Lopez", "daniel.26@yopmail.com", "1234567890");
-        student.setData("English",System.getProperty("user.dir") + "\\src\\test\\resources\\images\\test.png");
-        student.setAddress("esta data es de prueba","Haryana","Karnal");
-        Assertions.assertEquals(message.getSuccessfulMessage(),"Thanks for submitting the form");
+        studentFormPage.fillBasicData("Daniel", "Lopez", "daniel.26@yopmail.com", "1234567890");
+        studentFormPage.setData("English",System.getProperty("user.dir") + "\\src\\test\\resources\\images\\test.png");
+        studentFormPage.setAddress("esta data es de prueba","Haryana","Karnal");
+        Assertions.assertEquals(messageFormPage.getSuccessfulMessage(),"Thanks for submitting the form");
     }
 
     @AfterEach

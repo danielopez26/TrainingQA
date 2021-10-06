@@ -1,4 +1,4 @@
-package pages.automationpractice;
+package pages.automation.practice;
 
 import drivers.InitializeWebDriver;
 import org.openqa.selenium.WebElement;
