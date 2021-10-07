@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import pages.automation.practice.*;
 
 
-public class TestAutomationPractice {
+public class AutomationPracticeTest {
 
     private HomePage homePage;
     private CartPage cartPage;

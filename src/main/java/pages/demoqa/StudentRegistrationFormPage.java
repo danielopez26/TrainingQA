@@ -1,12 +1,17 @@
 package pages.demoqa;
 
 import drivers.InitializeWebDriver;
+import net.bytebuddy.dynamic.DynamicType;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNullableByDefault;
+import java.util.Optional;
 
 
 public class StudentRegistrationFormPage {
@@ -68,6 +73,19 @@ public class StudentRegistrationFormPage {
         mobileNumberInput.sendKeys(number);
         calendar.click();
         dayOfCalendar.click();
+    }
+
+    public void fillBasicData(String FirstName, String lastName, String number){
+        firstNameInput.sendKeys(FirstName);
+        lastNameInput.sendKeys(lastName);
+        genderRadio.click();
+        mobileNumberInput.sendKeys(number);
+        calendar.click();
+        dayOfCalendar.click();
+        mobileNumberInput.sendKeys(Keys.PAGE_DOWN);
+        submitButton.sendKeys(Keys.PAGE_DOWN);
+        wait.until(ExpectedConditions.visibilityOf(submitButton));
+        submitButton.click();
     }
 
     public void setData(String subjects, String image){

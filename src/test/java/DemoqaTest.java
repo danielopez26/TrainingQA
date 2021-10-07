@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import pages.demoqa.StudentRegistrationFormPage;
 import pages.demoqa.SuccessfulregistrationPage;
 
-public class TestDemoqa {
+public class DemoqaTest {
 
     private StudentRegistrationFormPage studentFormPage;
     private SuccessfulregistrationPage messageFormPage;
@@ -20,9 +20,7 @@ public class TestDemoqa {
 
     @Test
     public void fillFormAndValidate(){
-        studentFormPage.fillBasicData("Daniel", "Lopez", "daniel.26@yopmail.com", "1234567890");
-        studentFormPage.setData("English",System.getProperty("user.dir") + "\\src\\test\\resources\\images\\test.png");
-        studentFormPage.setAddress("esta data es de prueba","Haryana","Karnal");
+        studentFormPage.fillBasicData("Daniel", "Lopez", "1234567890");
         Assertions.assertEquals(messageFormPage.getSuccessfulMessage(),"Thanks for submitting the form");
     }
 
