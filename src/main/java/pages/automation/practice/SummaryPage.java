@@ -1,4 +1,4 @@
-package pagesObject;
+package pages.automation.practice;
 
 import drivers.InitializeWebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,21 +7,20 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class CartPage {
+public class SummaryPage {
 
     private WebDriverWait wait;
 
-    public CartPage () {
+    public SummaryPage() {
         wait = new WebDriverWait(InitializeWebDriver.getInstance().getDriver(),20);
         PageFactory.initElements(InitializeWebDriver.getInstance().getDriver(), this);
     }
 
-    @FindBy(xpath = "//span[contains(text(),'Proceed to checkout')]")
-    private WebElement proceedToCheckout;
+    @FindBy(xpath = "//p//span[contains(text(),'Proceed to checkout')]")
+    private WebElement btnProceedSumary;
 
-    public void proceedToCheckout(){
-        wait.until(ExpectedConditions.elementToBeClickable(proceedToCheckout));
-        proceedToCheckout.click();
+    public void goToCheckout(){
+        wait.until(ExpectedConditions.elementToBeClickable(btnProceedSumary));
+        btnProceedSumary.click();
     }
-
 }

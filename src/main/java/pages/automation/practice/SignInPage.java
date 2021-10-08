@@ -1,4 +1,4 @@
-package pagesObject;
+package pages.automation.practice;
 
 
 import drivers.InitializeWebDriver;
