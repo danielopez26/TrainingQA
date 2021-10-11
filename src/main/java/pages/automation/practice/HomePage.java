@@ -28,7 +28,7 @@ public class HomePage {
     @FindBy(xpath = "//span[text()='Add to cart']")
     private WebElement addToCart;
 
-    public void addToCartTShirt(){
+    public HomePage addToCartTShirt(){
         wait.until(ExpectedConditions.elementToBeClickable(product));
         product.sendKeys(Keys.DOWN);
         product.sendKeys(Keys.DOWN);
@@ -36,5 +36,6 @@ public class HomePage {
         actions.moveToElement(product).build().perform();
         wait.until(ExpectedConditions.elementToBeClickable(addToCart));
         addToCart.click();
+        return this;
     }
 }

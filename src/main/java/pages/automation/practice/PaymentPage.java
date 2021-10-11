@@ -29,14 +29,16 @@ public class PaymentPage {
     @FindBy(xpath = "//strong[text() = \"Your order on My Store is complete.\"]")
     private WebElement orderConfirmationMessage;
 
-    public void payByBankwire(){
+    public PaymentPage payByBankwire(){
         wait.until(ExpectedConditions.elementToBeClickable(payByBankwire));
         payByBankwire.click();
+        return this;
     }
 
-    public void confirmFinalOrder(){
+    public PaymentPage confirmFinalOrder(){
         wait.until(ExpectedConditions.elementToBeClickable(confirmOrder));
         confirmOrder.click();
+        return this;
     }
 
     public String checkFinalStatus(){
