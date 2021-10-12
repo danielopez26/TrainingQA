@@ -1,7 +1,6 @@
 package pages.demoqa;
 
 import drivers.InitializeWebDriver;
-import net.bytebuddy.dynamic.DynamicType;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,9 +8,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNullableByDefault;
-import java.util.Optional;
 
 
 public class StudentRegistrationFormPage {
@@ -65,18 +61,19 @@ public class StudentRegistrationFormPage {
     @FindBy(id = "uploadPicture")
     private WebElement uploadPicture;
 
-    public void fillBasicData(String FirstName, String lastName, String email, String number){
-        firstNameInput.sendKeys(FirstName);
+    public StudentRegistrationFormPage fillBasicData(String firstName, String lastName, String email, String number){
+        firstNameInput.sendKeys(firstName);
         lastNameInput.sendKeys(lastName);
         emailInput.sendKeys(email);
         genderRadio.click();
         mobileNumberInput.sendKeys(number);
         calendar.click();
         dayOfCalendar.click();
+        return this;
     }
 
-    public void fillBasicData(String FirstName, String lastName, String number){
-        firstNameInput.sendKeys(FirstName);
+    public SuccessfulregistrationPage fillBasicData(String firstName, String lastName, String number){
+        firstNameInput.sendKeys(firstName);
         lastNameInput.sendKeys(lastName);
         genderRadio.click();
         mobileNumberInput.sendKeys(number);
@@ -86,19 +83,20 @@ public class StudentRegistrationFormPage {
         submitButton.sendKeys(Keys.PAGE_DOWN);
         wait.until(ExpectedConditions.visibilityOf(submitButton));
         submitButton.click();
+        return new SuccessfulregistrationPage();
     }
 
-    public void setData(String subjects, String image){
+    public StudentRegistrationFormPage setData(String subjects, String image){
         currentAddressInput.sendKeys(Keys.TAB);
         wait.until(ExpectedConditions.elementToBeClickable(subjectsInput));
         subjectsInput.sendKeys(subjects);
         subjectsInput.sendKeys(Keys.TAB);
         hobbiesRadio.click();
         uploadPicture.sendKeys(image);
-
+        return this;
     }
 
-    public void setAddress(String address, String state, String city){
+    public SuccessfulregistrationPage setAddress(String address, String state, String city){
         currentAddressInput.sendKeys(address);
         stateList.sendKeys(state);
         stateList.sendKeys(Keys.TAB);
@@ -107,6 +105,7 @@ public class StudentRegistrationFormPage {
         submitButton.sendKeys(Keys.PAGE_DOWN);
         wait.until(ExpectedConditions.visibilityOf(submitButton));
         submitButton.click();
+        return new SuccessfulregistrationPage();
     }
 
 }

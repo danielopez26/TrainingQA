@@ -19,8 +19,9 @@ public class AddressPage {
     @FindBy(name = "processAddress")
     private WebElement btnConfirmAddress;
 
-    public void confirmAddress(){
+    public ShippingPage confirmAddress(){
         wait.until(ExpectedConditions.elementToBeClickable(btnConfirmAddress));
         btnConfirmAddress.click();
+        return new ShippingPage();
     }
 }

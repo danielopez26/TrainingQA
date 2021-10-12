@@ -37,8 +37,8 @@ public class AutomationPracticeTest {
         signInPage.login("daniel.26@yopmail.com","12345678");
         addressPage.confirmAddress();
         shippingPage.confirmShipping();
-        paymentPage.payByBankwire();
-        paymentPage.confirmFinalOrder();
+        paymentPage.payByBankwire()
+                .confirmFinalOrder();
         Assertions.assertEquals(paymentPage.checkFinalStatus(),"Your order on My Store is complete.");
         }
 
