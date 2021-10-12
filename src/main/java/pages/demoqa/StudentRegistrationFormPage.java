@@ -72,7 +72,7 @@ public class StudentRegistrationFormPage {
         return this;
     }
 
-    public StudentRegistrationFormPage fillBasicData(String firstName, String lastName, String number){
+    public SuccessfulregistrationPage fillBasicData(String firstName, String lastName, String number){
         firstNameInput.sendKeys(firstName);
         lastNameInput.sendKeys(lastName);
         genderRadio.click();
@@ -83,7 +83,7 @@ public class StudentRegistrationFormPage {
         submitButton.sendKeys(Keys.PAGE_DOWN);
         wait.until(ExpectedConditions.visibilityOf(submitButton));
         submitButton.click();
-        return this;
+        return new SuccessfulregistrationPage();
     }
 
     public StudentRegistrationFormPage setData(String subjects, String image){
@@ -96,7 +96,7 @@ public class StudentRegistrationFormPage {
         return this;
     }
 
-    public StudentRegistrationFormPage setAddress(String address, String state, String city){
+    public SuccessfulregistrationPage setAddress(String address, String state, String city){
         currentAddressInput.sendKeys(address);
         stateList.sendKeys(state);
         stateList.sendKeys(Keys.TAB);
@@ -105,7 +105,7 @@ public class StudentRegistrationFormPage {
         submitButton.sendKeys(Keys.PAGE_DOWN);
         wait.until(ExpectedConditions.visibilityOf(submitButton));
         submitButton.click();
-        return this;
+        return new SuccessfulregistrationPage();
     }
 
 }

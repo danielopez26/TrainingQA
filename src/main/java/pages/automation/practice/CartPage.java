@@ -19,10 +19,10 @@ public class CartPage {
     @FindBy(xpath = "//span[contains(text(),'Proceed to checkout')]")
     private WebElement proceedToCheckout;
 
-    public CartPage proceedToCheckout(){
+    public SummaryPage proceedToCheckout(){
         wait.until(ExpectedConditions.elementToBeClickable(proceedToCheckout));
         proceedToCheckout.click();
-        return this;
+        return new SummaryPage();
     }
 
 }

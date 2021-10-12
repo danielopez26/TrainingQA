@@ -22,10 +22,10 @@ public class ShippingPage {
     @FindBy(name = "processCarrier")
     private WebElement btnConfirmShipping;
 
-    public ShippingPage confirmShipping(){
+    public PaymentPage confirmShipping(){
         wait.until(ExpectedConditions.elementToBeClickable(chkTermsShipping));
         chkTermsShipping.click();
         btnConfirmShipping.click();
-        return this;
+        return new PaymentPage();
     }
 }

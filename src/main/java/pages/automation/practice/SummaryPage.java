@@ -19,9 +19,9 @@ public class SummaryPage {
     @FindBy(xpath = "//p//span[contains(text(),'Proceed to checkout')]")
     private WebElement btnProceedSumary;
 
-    public SummaryPage goToCheckout(){
+    public SignInPage goToCheckout(){
         wait.until(ExpectedConditions.elementToBeClickable(btnProceedSumary));
         btnProceedSumary.click();
-        return this;
+        return new SignInPage();
     }
 }

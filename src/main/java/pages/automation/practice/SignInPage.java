@@ -25,11 +25,11 @@ public class SignInPage {
     @FindBy(id = "SubmitLogin")
     private WebElement btnsignIn;
 
-    public SignInPage login (String username, String passwd){
+    public AddressPage login (String username, String passwd){
         email.sendKeys(username);
         password.sendKeys(passwd);
         btnsignIn.click();
-        return this;
+        return new AddressPage();
     }
 }
 
