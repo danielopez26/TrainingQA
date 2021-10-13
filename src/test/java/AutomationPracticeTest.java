@@ -8,30 +8,24 @@ import pages.automation.practice.*;
 
 public class AutomationPracticeTest {
 
-    private HomePage homePage;
-    private PaymentPage paymentPage;
-
     @BeforeEach
     public void setUp(){
-
-        homePage = new HomePage();
-        paymentPage = new PaymentPage();
         InitializeWebDriver.getInstance().getDriver().get("http://automationpractice.com/index.php");
     }
 
     @Test
     public void purchase(){
 
-
-        homePage.addToCartTShirt()
-                        .proceedToCheckout()
-                        .goToCheckout()
-                        .login("daniel.26@yopmail.com","12345678")
-                        .confirmAddress()
-                        .confirmShipping()
-                        .payByBankwire()
-                        .confirmFinalOrder();
-        Assertions.assertEquals(paymentPage.checkFinalStatus(),"Your order on My Store is complete.");
+        String finalStatus = new HomePage().addToCartTShirt()
+                                .proceedToCheckout()
+                                .goToCheckout()
+                                .login("daniel.26@yopmail.com","12345678")
+                                .confirmAddress()
+                                .confirmShipping()
+                                .payByBankwire()
+                                .confirmFinalOrder()
+                                .checkFinalStatus();
+        Assertions.assertEquals("Your order on My Store is complete.",finalStatus);
         }
 
     @AfterEach
