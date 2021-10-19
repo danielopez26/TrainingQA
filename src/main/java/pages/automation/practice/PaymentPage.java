@@ -26,7 +26,7 @@ public class PaymentPage {
     @FindBy(css = "button.button-medium[type=submit]")
     private WebElement confirmOrder;
 
-    @FindBy(css = "#center_column > div > p > strong")
+    @FindBy(css = "p.cheque-indent")
     private WebElement orderConfirmationMessage;
 
     public PaymentPage payByBankwire(){
