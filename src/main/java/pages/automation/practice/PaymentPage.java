@@ -23,10 +23,10 @@ public class PaymentPage {
     @FindBy(className = "bankwire")
     private WebElement payByBankwire;
 
-    @FindBy(xpath = "//button[span = \"I confirm my order\"]")
+    @FindBy(css = "button.button-medium[type=submit]")
     private WebElement confirmOrder;
 
-    @FindBy(xpath = "//strong[text() = \"Your order on My Store is complete.\"]")
+    @FindBy(css = "#center_column > div > p > strong")
     private WebElement orderConfirmationMessage;
 
     public PaymentPage payByBankwire(){
