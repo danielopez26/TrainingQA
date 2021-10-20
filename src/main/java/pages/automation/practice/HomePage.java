@@ -22,10 +22,10 @@ public class HomePage {
         PageFactory.initElements(InitializeWebDriver.getInstance().getDriver(), this);
     }
 
-    @FindBy(xpath = "//ul[contains(@class,'active')]//a[contains(text(),'Faded Short Sleeve T-shirt')]")
+    @FindBy(css = "a.product-name[title=\"Faded Short Sleeve T-shirts\"]")
     private WebElement product;
 
-    @FindBy(xpath = "//span[text()='Add to cart']")
+    @FindBy(css = "a.button[data-id-product=\"1\"]")
     private WebElement addToCart;
 
     public CartPage addToCartTShirt(){

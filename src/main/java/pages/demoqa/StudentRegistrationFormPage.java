@@ -28,7 +28,7 @@ public class StudentRegistrationFormPage {
     @FindBy(id = "userEmail")
     private WebElement emailInput;
 
-    @FindBy(xpath = "//label[@for='gender-radio-1']")
+    @FindBy(css = "label.custom-control-label[for=\"gender-radio-1\"]")
     private WebElement genderRadio;
 
     @FindBy(id = "userNumber")
@@ -37,13 +37,13 @@ public class StudentRegistrationFormPage {
     @FindBy(id = "dateOfBirthInput")
     private WebElement calendar;
 
-    @FindBy(xpath = "//*[@aria-label = \"Choose Friday, October 1st, 2021\"]")
+    @FindBy(css = "div[aria-label=\"Choose Friday, October 1st, 2021\"]")
     private WebElement dayOfCalendar;
 
     @FindBy(id = "subjectsInput")
     private WebElement subjectsInput;
 
-    @FindBy(xpath = "//label[@for='hobbies-checkbox-1']")
+    @FindBy(css = "label.custom-control-label[for=\"hobbies-checkbox-1\"]")
     private WebElement hobbiesRadio;
 
     @FindBy(id = "currentAddress")

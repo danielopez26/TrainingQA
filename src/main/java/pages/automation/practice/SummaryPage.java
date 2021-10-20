@@ -16,7 +16,7 @@ public class SummaryPage {
         PageFactory.initElements(InitializeWebDriver.getInstance().getDriver(), this);
     }
 
-    @FindBy(xpath = "//p//span[contains(text(),'Proceed to checkout')]")
+    @FindBy(css = "a[href=\"http://automationpractice.com/index.php?controller=order&step=1\"]")
     private WebElement btnProceedSumary;
 
     public SignInPage goToCheckout(){

@@ -16,7 +16,7 @@ public class CartPage {
         PageFactory.initElements(InitializeWebDriver.getInstance().getDriver(), this);
     }
 
-    @FindBy(xpath = "//span[contains(text(),'Proceed to checkout')]")
+    @FindBy(css = "a[title= 'Proceed to checkout']")
     private WebElement proceedToCheckout;
 
     public SummaryPage proceedToCheckout(){
