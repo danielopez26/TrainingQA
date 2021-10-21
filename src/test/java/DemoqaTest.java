@@ -14,8 +14,10 @@ public class DemoqaTest {
 
     @Test
     public void fillFormAndValidate(){
+        String path = System.getProperty("user.dir");
+        String fileSeparator = System.getProperty("file.separator");
         String successfulMessage = new StudentRegistrationFormPage().fillBasicData("Daniel", "Lopez","daniel.26@yopmail.com","1234567890")
-                                .setData("English", System.getProperty("user.dir") + "\\src\\test\\resources\\images\\test.png")
+                                .setHobbiesAndImage( path + fileSeparator + "src" + fileSeparator + "test" + fileSeparator + "resources" + fileSeparator + "images" + fileSeparator + "test.png")
                                 .setAddress("","Haryana","Karnal")
                                 .getSuccessfulMessage();
         Assertions.assertEquals("Thanks for submitting the form", successfulMessage);

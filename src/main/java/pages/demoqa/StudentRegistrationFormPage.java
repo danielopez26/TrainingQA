@@ -86,13 +86,18 @@ public class StudentRegistrationFormPage {
         return new SuccessfulregistrationPage();
     }
 
-    public StudentRegistrationFormPage setData(String subjects, String image){
+    public StudentRegistrationFormPage setHobbiesAndImage(String image){
+        currentAddressInput.sendKeys(Keys.TAB);
+        hobbiesRadio.click();
+        uploadPicture.sendKeys(image);
+        return this;
+    }
+
+    public StudentRegistrationFormPage setSubjects(String subjects){
         currentAddressInput.sendKeys(Keys.TAB);
         wait.until(ExpectedConditions.elementToBeClickable(subjectsInput));
         subjectsInput.sendKeys(subjects);
         subjectsInput.sendKeys(Keys.TAB);
-        hobbiesRadio.click();
-        uploadPicture.sendKeys(image);
         return this;
     }
 
