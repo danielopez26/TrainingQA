@@ -1,8 +1,11 @@
 package pages.demoqa;
 
 import drivers.InitializeWebDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.PageFactory;
@@ -44,7 +47,13 @@ public class StudentRegistrationFormPage {
     private WebElement subjectsInput;
 
     @FindBy(css = "label.custom-control-label[for=\"hobbies-checkbox-1\"]")
-    private WebElement hobbiesRadio;
+    private WebElement hobbieSport;
+
+    @FindBy(css = "label.custom-control-label[for=\"hobbies-checkbox-2\"]")
+    private WebElement hobbieReading;
+
+    @FindBy(css = "label.custom-control-label[for=\"hobbies-checkbox-3\"]")
+    private WebElement hobbieMusic;
 
     @FindBy(id = "currentAddress")
     private WebElement currentAddressInput;
@@ -86,9 +95,21 @@ public class StudentRegistrationFormPage {
         return new SuccessfulregistrationPage();
     }
 
-    public StudentRegistrationFormPage setHobbies(){
+    public StudentRegistrationFormPage setHobbies(String hobbie){
         currentAddressInput.sendKeys(Keys.TAB);
-        hobbiesRadio.click();
+        switch (hobbie){
+            case "Sports":
+                hobbieSport.click();
+                break;
+            case "Reading":
+                hobbieReading.click();
+                break;
+            case "Music":
+                hobbieMusic.click();
+                break;
+            default:
+                throw new IllegalStateException("El hobbie " + hobbie+" no se encuentra en la lista");
+        }
         return this;
     }
 
