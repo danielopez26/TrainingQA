@@ -86,9 +86,14 @@ public class StudentRegistrationFormPage {
         return new SuccessfulregistrationPage();
     }
 
-    public StudentRegistrationFormPage setHobbiesAndImage(String image){
+    public StudentRegistrationFormPage setHobbies(){
         currentAddressInput.sendKeys(Keys.TAB);
         hobbiesRadio.click();
+        return this;
+    }
+
+    public StudentRegistrationFormPage setImage(String image){
+        currentAddressInput.sendKeys(Keys.TAB);
         uploadPicture.sendKeys(image);
         return this;
     }
@@ -103,6 +108,17 @@ public class StudentRegistrationFormPage {
 
     public SuccessfulregistrationPage setAddress(String address, String state, String city){
         currentAddressInput.sendKeys(address);
+        stateList.sendKeys(state);
+        stateList.sendKeys(Keys.TAB);
+        cityList.sendKeys(city);
+        cityList.sendKeys(Keys.TAB);
+        submitButton.sendKeys(Keys.PAGE_DOWN);
+        wait.until(ExpectedConditions.visibilityOf(submitButton));
+        submitButton.click();
+        return new SuccessfulregistrationPage();
+    }
+
+    public SuccessfulregistrationPage setAddress(String state, String city){
         stateList.sendKeys(state);
         stateList.sendKeys(Keys.TAB);
         cityList.sendKeys(city);
