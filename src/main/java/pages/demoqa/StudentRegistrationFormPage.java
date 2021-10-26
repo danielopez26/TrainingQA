@@ -1,8 +1,11 @@
 package pages.demoqa;
 
 import drivers.InitializeWebDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.PageFactory;
@@ -44,7 +47,13 @@ public class StudentRegistrationFormPage {
     private WebElement subjectsInput;
 
     @FindBy(css = "label.custom-control-label[for=\"hobbies-checkbox-1\"]")
-    private WebElement hobbiesRadio;
+    private WebElement hobbieSport;
+
+    @FindBy(css = "label.custom-control-label[for=\"hobbies-checkbox-2\"]")
+    private WebElement hobbieReading;
+
+    @FindBy(css = "label.custom-control-label[for=\"hobbies-checkbox-3\"]")
+    private WebElement hobbieMusic;
 
     @FindBy(id = "currentAddress")
     private WebElement currentAddressInput;
@@ -86,18 +95,51 @@ public class StudentRegistrationFormPage {
         return new SuccessfulregistrationPage();
     }
 
-    public StudentRegistrationFormPage setData(String subjects, String image){
+    public StudentRegistrationFormPage setHobbies(String hobbie){
+        currentAddressInput.sendKeys(Keys.TAB);
+        switch (hobbie){
+            case "Sports":
+                hobbieSport.click();
+                break;
+            case "Reading":
+                hobbieReading.click();
+                break;
+            case "Music":
+                hobbieMusic.click();
+                break;
+            default:
+                throw new IllegalStateException("El hobbie " + hobbie+" no se encuentra en la lista");
+        }
+        return this;
+    }
+
+    public StudentRegistrationFormPage setImage(String image){
+        currentAddressInput.sendKeys(Keys.TAB);
+        uploadPicture.sendKeys(image);
+        return this;
+    }
+
+    public StudentRegistrationFormPage setSubjects(String subjects){
         currentAddressInput.sendKeys(Keys.TAB);
         wait.until(ExpectedConditions.elementToBeClickable(subjectsInput));
         subjectsInput.sendKeys(subjects);
         subjectsInput.sendKeys(Keys.TAB);
-        hobbiesRadio.click();
-        uploadPicture.sendKeys(image);
         return this;
     }
 
     public SuccessfulregistrationPage setAddress(String address, String state, String city){
         currentAddressInput.sendKeys(address);
+        stateList.sendKeys(state);
+        stateList.sendKeys(Keys.TAB);
+        cityList.sendKeys(city);
+        cityList.sendKeys(Keys.TAB);
+        submitButton.sendKeys(Keys.PAGE_DOWN);
+        wait.until(ExpectedConditions.visibilityOf(submitButton));
+        submitButton.click();
+        return new SuccessfulregistrationPage();
+    }
+
+    public SuccessfulregistrationPage setAddress(String state, String city){
         stateList.sendKeys(state);
         stateList.sendKeys(Keys.TAB);
         cityList.sendKeys(city);
