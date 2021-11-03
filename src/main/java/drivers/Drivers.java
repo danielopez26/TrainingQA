@@ -16,19 +16,23 @@ import java.util.Map;
 public class Drivers {
 
     public WebDriver strategyDriver(){
-        String browserType = System.getProperty("browserType", "SauceChrome");
         String browser = System.getProperty("browser", "Firefox");
-        switch (browser){
-            case "Chrome":
-                WebDriverManager.chromedriver().setup();
-                return new ChromeDriver();
-            case "Firefox":
-                WebDriverManager.firefoxdriver().setup();
-                return new FirefoxDriver();
+        String platform = System.getProperty("platform", "Local");
+        switch (platform){
+            case "Local":
+                switch(browser) {
+                    case "Chrome":
+                        WebDriverManager.chromedriver().setup();
+                        return new ChromeDriver();
+
+                    case "Firefox":
+                        WebDriverManager.firefoxdriver().setup();
+                        return new FirefoxDriver();
+                }
             case "SauceLabs":
                 String URL = "https://daniel.26:409b27ce-b7cc-417b-b200-7d46996d36f6@ondemand.us-west-1.saucelabs.com:443/wd/hub";
-                switch (browserType){
-                    case "SauceChrome":
+                switch (browser){
+                    case "Chrome":
                         try{
                             ChromeOptions browserOptions = new ChromeOptions();
                             browserOptions.setCapability("name", "SauceLabs Test");
@@ -42,7 +46,7 @@ public class Drivers {
                             throw new IllegalStateException("Unexpected URL: " + URL);
                         }
 
-                    case "SauceFirefox":
+                    case "Firefox":
                         try{
                             FirefoxOptions browserOptions = new FirefoxOptions();
                             browserOptions.setCapability("name", "SauceLabs Test");
@@ -57,7 +61,7 @@ public class Drivers {
                         }
                 }
             default:
-                throw new IllegalStateException("Unexpected value: " + browser);
+                throw new IllegalStateException("Unexpected value: " + platform);
         }
     }
 }
