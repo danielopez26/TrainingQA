@@ -26,7 +26,7 @@ public class PaymentPage {
     @FindBy(css = "button.button-medium[type=submit]")
     private WebElement confirmOrder;
 
-    @FindBy(css = "p.cheque-indent")
+    @FindBy(xpath = "//strong[text() = \"Your order on My Store is complete.\"]")
     private WebElement orderConfirmationMessage;
 
     public PaymentPage payByBankwire(){
@@ -42,7 +42,7 @@ public class PaymentPage {
     }
 
     public String checkFinalStatus(){
-        wait.until(ExpectedConditions.elementToBeClickable(orderConfirmationMessage));
+        wait.until(ExpectedConditions.visibilityOf(orderConfirmationMessage));
         return orderConfirmationMessage.getText();
     }
 }
