@@ -40,7 +40,7 @@ public class StudentRegistrationFormPage {
     @FindBy(id = "dateOfBirthInput")
     private WebElement calendar;
 
-    @FindBy(css = "div[aria-label=\"Choose Friday, October 1st, 2021\"]")
+    @FindBy(css = "div[aria-label=\"Choose Tuesday, November 30th, 2021\"]")
     private WebElement dayOfCalendar;
 
     @FindBy(id = "subjectsInput")
