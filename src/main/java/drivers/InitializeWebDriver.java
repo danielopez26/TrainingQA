@@ -1,14 +1,16 @@
 package drivers;
 
+import com.epam.healenium.SelfHealingDriver;
 import org.openqa.selenium.WebDriver;
 
 public class InitializeWebDriver {
 
     private static InitializeWebDriver instance = null;
-    private WebDriver driver;
+    private WebDriver delegate;
 
     private InitializeWebDriver(){
-        driver = new Drivers().strategyDriver();
+        delegate = new Drivers().strategyDriver();
+        SelfHealingDriver driver = SelfHealingDriver.create(delegate);
         driver.manage().window().maximize();
     }
 
@@ -21,11 +23,11 @@ public class InitializeWebDriver {
 
     public void closeObjectInstance() {
         instance = null;
-        driver.quit();
+        delegate.quit();
     }
 
     public WebDriver getDriver(){
-        return driver;
+        return delegate;
     }
 
 }
