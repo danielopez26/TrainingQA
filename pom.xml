@@ -38,6 +38,12 @@
             <version>5.7.0</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>com.epam.healenium</groupId>
+            <artifactId>healenium-web</artifactId>
+            <version>3.1.6</version>
+        </dependency>
+
     </dependencies>
 
     <build>
